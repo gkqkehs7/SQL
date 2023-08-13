@@ -28,7 +28,7 @@ abc_123 (0) /  _abc (x)   / 123abc (x)
 
 ```tsx
 CREATE TABLE member(
-		id VARCHAR2(20),
+	id VARCHAR2(20),
     password VARCHAR2(20),
     name VARCHAR2(20)
 )
@@ -40,7 +40,7 @@ CREATE TABLE member(
 
 ```tsx
 CREATE TABLE member(
-		id VARCHAR2(20) NOT NULL,
+	id VARCHAR2(20) NOT NULL,
     password VARCHAR2(20) NOT NULL,
     name VARCHAR2(20)
 )
@@ -52,7 +52,7 @@ CREATE TABLE member(
 
 ```tsx
 CREATE TABLE member(
-		id VARCHAR2(20) NOT NULL,
+	id VARCHAR2(20) NOT NULL,
     password VARCHAR2(20) DEFAULT '1234',
     name VARCHAR2(20) DEFAULT 'NICKNAME' NOT NULL
 )
@@ -66,16 +66,16 @@ CREATE TABLE member(
 
 ```tsx
 CREATE TABLE member(
-		id VARCHAR2(20) UNIQUE,
+	id VARCHAR2(20) UNIQUE,
     password VARCHAR2(20) NOT NULL,
     name VARCHAR2(20)
 )
 
 CREATE TABLE member(
-		id VARCHAR2(20),
+	id VARCHAR2(20),
     password VARCHAR2(20) NOT NULL,
     name VARCHAR2(20),
-		UNIQUE(id)
+	UNIQUE(id)
 )
 ```
 
@@ -87,11 +87,11 @@ CREATE TABLE member(
 
 ```tsx
 CREATE TABLE member(
-		id VARCHAR2(20) UNIQUE,
+	id VARCHAR2(20) UNIQUE,
     password VARCHAR2(20) NOT NULL,
     name VARCHAR2(20)
-		age NUMBER CHECK(AGE ≥ 18)  
-		gender VARCHAR2(10) CHECK(gender IN ('남', '여'))
+	age NUMBER CHECK(AGE ≥ 18)  
+	gender VARCHAR2(10) CHECK(gender IN ('남', '여'))
 )
 ```
 
@@ -104,17 +104,17 @@ CREATE TABLE member(
 ```tsx
 // 데이터 타입과 같이 설정하기
 CREATE TABLE member(
-		id VARCHAR2(20) PRIMARY KEY,
+	id VARCHAR2(20) PRIMARY KEY,
     password VARCHAR2(20),
     name VARCHAR2(20)
 )
 
 // 데이터 타입과 따로 설정하기
 CREATE TABLE member(
-		id VARCHAR2(20),
+	id VARCHAR2(20),
     password VARCHAR2(20),
     name VARCHAR2(20)
-		PRIMARY KEY(id)
+	PRIMARY KEY(id)
 )
 ```
 
@@ -124,7 +124,7 @@ PRIMARY KEY 설정
 
 ```tsx
 CREATE TABLE member(
-		id VARCHAR2(20) CONSTRAINT pk_id PRIMARY KEY,
+	id VARCHAR2(20) CONSTRAINT pk_id PRIMARY KEY,
     password VARCHAR2(20),
     name VARCHAR2(20)
 )
@@ -151,22 +151,22 @@ CREATE TABLE orders (
 
 ```tsx
 CREATE TABLE member(
-		id VARCHAR2(20) PRIMARY KEY,
+	id VARCHAR2(20) PRIMARY KEY,
     password VARCHAR2(20),
     name VARCHAR2(20)
 )
 
 // 데이터 타입과 같이 설정하기
 CREATE TABLE member_score(
-	  id VARCHAR2(20) REFERENCES member(id),
-		score NUMBER NOT NULL,
+	id VARCHAR2(20) REFERENCES member(id),
+	score NUMBER NOT NULL,
 )
 
 // 데이터 타입과 따로 설정하기
 CREATE TABLE member_score(
-	  id VARCHAR2(20) REFERENCES member(id),
-		score NUMBER NOT NULL,
-		FOREGIN KEY (id) REFERENCES member(id)
+	id VARCHAR2(20) REFERENCES member(id),
+	score NUMBER NOT NULL,
+	FOREGIN KEY (id) REFERENCES member(id)
 )
 ```
 
@@ -178,20 +178,20 @@ member_score에서 memeber에 없는 id를 삽입하려 한다면 `DEPENDENT` �
 
 ```tsx
 CREATE TABLE member(
-		id VARCHAR2(20) PRIMARY KEY,
+	id VARCHAR2(20) PRIMARY KEY,
     password VARCHAR2(20),
     name VARCHAR2(20)
 )
 
 CREATE TABLE member_score(
-	  id VARCHAR2(20) PRIMARY KEY,
-		score NUMBER NOT NULL,
-		// 부모 값 삭제시 참조하는 자식이 있다면 삭제 불가 (기본 옵션)
-		FOREIGN KEY(id) REFERENCES member(id) ON DELETE RESTRICT
-		// 부모 키를 삭제 시 자식 키를 가진 행도 함께 삭제
-		FOREIGN KEY(id) REFERENCES member(id) ON DELETE CASCADE
-		// 부모 키를 삭제 시 자식 키를 NULL로 변경한다.
-		FOREIGN KEY(id) REFERENCES member(id) ON DELETE SET NULL
+	id VARCHAR2(20) PRIMARY KEY,
+    score NUMBER NOT NULL,
+    // 부모 값 삭제시 참조하는 자식이 있다면 삭제 불가 (기본 옵션)
+   FOREIGN KEY(id) REFERENCES member(id) ON DELETE RESTRICT
+    // 부모 키를 삭제 시 자식 키를 가진 행도 함께 삭제
+    FOREIGN KEY(id) REFERENCES member(id) ON DELETE CASCADE
+    // 부모 키를 삭제 시 자식 키를 NULL로 변경한다.
+    FOREIGN KEY(id) REFERENCES member(id) ON DELETE SET NULL
 )
 ```
 
@@ -201,7 +201,7 @@ CREATE TABLE member_score(
 
 ```tsx
 CREATE TABLE member(
-		id VARCHAR2(20),
+	id VARCHAR2(20),
     password VARCHAR2(20),
     name VARCHAR2(20)
 )
