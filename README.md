@@ -1,30 +1,5 @@
 # sqld 기본 및 활용
 
-## 기타 
-### 0 나누기
-
-- A / 0 → 0
-- 0 / A → ERROR
-- 0 / NULL, NULL / 0, A / NULL, NULL / A → NULL
-
-<br/>
-
-### null
-
-- 모르는 값을 의미한다.
-- 값의 부재를 의미한다.
-- `NULL`과의 모든 비교는 `Unknown`을 반환한다.
-- `NULL`과의 모든 연산은 `NULL`을 반환한다.
-
-<br/>
-
-### ORACLE과 SQL
-
-- orcle은 ‘’로 입력하면 null로 인식 / sql은 ‘’로 인식
-- Oracle에서는 `NULL`을 가장 큰 값으로 간주한다.
-- SQL에서는 `NULL`을 가장 작은 값으로 간주한다.
-
-<br/>
 
 ### SQL 문장의 종류
 
@@ -1698,3 +1673,31 @@ revoke select on professor from public
 만약에 사용자 U1이 U2에게 특정권한을 주었는데, U3가 U2에게 동일권한을 부여하였다면 사용자 U1이 `Revoke select on professor from U2;` 라는 구문을 입력했을 때 U2의 select권한은 없어질까?
 
 이 경우 사용자 U3도 `Revoke select on professor from U2;` 를 입력해야 U2는 professor에대한 select권한이 완전히 없어지게 된다.
+
+<br/>
+
+## 기타 
+### 0 나누기
+
+- A / 0 → 0
+- 0 / A → ERROR
+- 0 / NULL, NULL / 0, A / NULL, NULL / A → NULL
+
+<br/>
+
+### null
+
+- 모르는 값을 의미한다.
+- 값의 부재를 의미한다.
+- `NULL`과의 모든 비교는 `Unknown`을 반환한다.
+- `NULL`과의 모든 연산은 `NULL`을 반환한다.
+
+<br/>
+
+### ORACLE과 SQL
+
+- orcle은 ‘’로 입력하면 null로 인식 / sql은 ‘’로 인식
+- Oracle에서는 `NULL`을 가장 큰 값으로 간주한다.
+- SQL에서는 `NULL`을 가장 작은 값으로 간주한다.
+
+<br/>
